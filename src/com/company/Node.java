@@ -7,12 +7,4 @@ public class Node<TValue> {
     public Node(TValue value) {
         Value = value;
     }
-
-//    public int GetValue() {
-//        return _value;
-//    }
-//
-//    public void SetValue(String value) {
-//        _value = Integer.parseInt(value);
-//    }
 }
