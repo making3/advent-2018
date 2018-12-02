@@ -1,35 +1,32 @@
 package com.company.Days.Two;
 
 import com.company.AdventRun;
-import com.company.Node;
 
 import java.util.HashMap;
 
-public class PartOne implements AdventRun<Node<String>> {
+public class PartOne implements AdventRun<String[]> {
     @Override
     public String getRunName() {
         return "Part 1";
     }
 
     @Override
-    public Node<String> getInput() {
+    public String[] getInput() {
         return DayTwoInput.get().getInput();
     }
 
     @Override
-    public String run(Node<String> head) {
+    public String run(String[] nodes) {
         int twoCount = 0;
         int threeCount = 0;
 
-        Node<String> node = head;
-
-        do {
+        for (int i = 0; i < nodes.length; i++) {
             int innerTwoCount = 0;
             int innerThreeCount = 0;
             HashMap<Character, Integer> m = new HashMap<>();
 
-            for (int i = 0; i < node.Value.length(); i++) {
-                char c = node.Value.charAt(i);
+            for (int k = 0; k < nodes[i].length(); k++) {
+                char c = nodes[i].charAt(k);
 
                 if (m.containsKey(c)) {
                     int newCount = m.get(c) + 1;
@@ -53,7 +50,7 @@ public class PartOne implements AdventRun<Node<String>> {
             if (innerTwoCount > 0) {
                 twoCount++;
             }
-        } while ((node = node.Next) != null);
+        };
 
         return Integer.toString(twoCount * threeCount);
     }

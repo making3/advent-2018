@@ -1,12 +1,11 @@
 package com.company.Days.Two;
 
 import com.company.Days.DayInput;
-import com.company.Node;
 import com.company.Reader;
 
 import java.io.IOException;
 
-public class DayTwoInput extends DayInput<Node<String>> {
+public class DayTwoInput extends DayInput<String[]> {
     private static DayTwoInput dayTwoInput;
 
     private DayTwoInput() {
@@ -21,21 +20,13 @@ public class DayTwoInput extends DayInput<Node<String>> {
     }
 
     @Override
-    protected Node<String> loadInput(Reader reader) throws IOException {
-        Node<String> head;
-        Node<String> node;
+    protected String[] loadInput(Reader reader) throws IOException {
+        String[] nodes = new String[250];
 
-        String line = reader.nextLine();
-        head = new Node(line);
-        node = head;
-        line = reader.nextLine();
-
-        while (!reader.EOF()) {
-            node.Next = new Node(line);
-            node = node.Next;
-            line = reader.nextLine();
+        for (int i = 0; i < nodes.length && !reader.EOF(); i++) {
+            nodes[i] = reader.nextLine();
         }
 
-        return head;
+        return nodes;
     }
 }

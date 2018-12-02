@@ -14,9 +14,9 @@ public class DayTwo extends AdventRunner {
 
     public void run() {
         TimedRunner tr = new TimedRunner();
-        tr.run(new PartOne());
         tr.run(new PartOneExample());
-        tr.run(new PartTwo());
+        tr.run(new PartOne());
         tr.run(new PartTwoExample());
+        tr.run(new PartTwo());
     }
 }
