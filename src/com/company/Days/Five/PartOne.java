@@ -31,7 +31,7 @@ public class PartOne implements AdventRun<String> {
         return Integer.toString(previous.size());
     }
 
-    private boolean isReaction(char first, char second) {
+    protected boolean isReaction(char first, char second) {
         int diff = 32;
         return (first > second && first - diff == second) ||
                (second > first && second - diff == first);
